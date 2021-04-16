@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% extends "commons/login.html" %}
-{% load staticfiles %}
+{% load static %}
 {% load bootstrap3 %}
 
 {% block body_box %}
@@ -23,6 +23,6 @@
 {% endif %}
 
 <br>
-<a href="{% url 'register' %}" class="text-center">Register a new user</a>
+<!--<a href="{% url 'register' %}" class="text-center">Register a new user</a>-->
         
 {% endblock body_box %}

@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('phone', models.CharField(max_length=18)),
                 ('address', models.CharField(max_length=220)),
                 ('email', models.CharField(max_length=180)),
-                ('group', models.ForeignKey(to='access.Group')),
+                ('group', models.ForeignKey(to='access.Group',on_delete=models.CASCADE,)),
             ],
         ),
     ]

@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('text', models.CharField(max_length=512)),
                 ('ts_send', models.DateTimeField(auto_now=True)),
                 ('ts_received', models.DateTimeField(auto_now=True)),
-                ('user', models.ForeignKey(to='access.User')),
+                ('user', models.ForeignKey(to='access.User',on_delete=models.CASCADE,)),
             ],
         ),
     ]

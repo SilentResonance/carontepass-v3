@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('kind', models.CharField(default=b'nfc', max_length=3, choices=[(b'nfc', b'NFC'), (b'mac', b'MAC')])),
                 ('code', models.CharField(max_length=64)),
-                ('user', models.ForeignKey(to='access.User')),
+                ('user', models.ForeignKey(to='access.User',on_delete=models.CASCADE,)),
             ],
         ),
         migrations.CreateModel(
@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('ts_input', models.DateTimeField(auto_now=True)),
                 ('ts_output', models.DateTimeField(auto_now=True)),
-                ('user', models.ForeignKey(to='access.User')),
+                ('user', models.ForeignKey(to='access.User',on_delete=models.CASCADE,)),
             ],
         ),
         migrations.CreateModel(
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
                 ('month', models.IntegerField()),
                 ('f_payment', models.DateTimeField(auto_now=True)),
                 ('amount', models.DecimalField(max_digits=4, decimal_places=2)),
-                ('user', models.ForeignKey(to='access.User')),
+                ('user', models.ForeignKey(to='access.User',on_delete=models.CASCADE,)),
             ],
         ),
     ]

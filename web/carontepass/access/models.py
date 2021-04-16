@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
-from telegram_group import send_group_msg, send_simple_msg, send_log_msg
+from access.telegram_group import send_group_msg, send_simple_msg, send_log_msg
 from carontepass.settings_local import TOKEN_IBOARDBOT, DOMOTICZ_LOCALIP, DOMOTICZ_IDX, DOMOTICZ_USUER, DOMOTICZ_PASS
 import urllib3
 
@@ -21,7 +21,7 @@ class Device(models.Model):
         (TAG, 'TAG'),
     )
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,)
     kind = models.CharField(max_length=3,
                                       choices=DEVICE_CHOICES,
                                       default=NFC,
@@ -45,7 +45,7 @@ class Device(models.Model):
 class Log(models.Model):
     __tablename__ = 'cp_log'
 
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,)
     ts_input = models.DateTimeField()
     ts_output = models.DateTimeField()
     user_in = models.BooleanField(default=False)
@@ -217,7 +217,7 @@ class Payment(models.Model):
 
     year = models.IntegerField()
     month = models.IntegerField()
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,)
     f_payment = models.DateTimeField()
     amount = models.FloatField(default=0.0)
     

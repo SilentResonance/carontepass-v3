@@ -36,7 +36,7 @@ class TelegramAdmin(admin.ModelAdmin):
   
 def roles(self):
     #short_name = unicode # function to get group name
-    short_name = lambda x:unicode(x)[:1].upper() # first letter of a group
+    short_name = lambda x:str(x)[:1].upper() # first letter of a group
     p = sorted([u"<a title='%s'>%s</a>" % (x, short_name(x)) for x in self.groups.all()])
     if self.user_permissions.count(): p += ['+']
     value = ', '.join(p)
@@ -54,7 +54,7 @@ def staff(self):
 staff.boolean = True
 staff.admin_order_field = 'is_staff'
 
-from django.core.urlresolvers import reverse
+#from django.core.urlresolvers import reverse
 def persons(self):
     return ', '.join(['<a href="%s">%s</a>' % (reverse('admin:auth_user_change', args=(x.id,)), x.username) for x in self.user_set.all().order_by('username')])
 persons.allow_tags = True

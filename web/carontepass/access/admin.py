@@ -55,6 +55,7 @@ staff.boolean = True
 staff.admin_order_field = 'is_staff'
 
 #from django.core.urlresolvers import reverse
+from django.urls import reverse
 def persons(self):
     return ', '.join(['<a href="%s">%s</a>' % (reverse('admin:auth_user_change', args=(x.id,)), x.username) for x in self.user_set.all().order_by('username')])
 persons.allow_tags = True

@@ -39,8 +39,7 @@ class Device(models.Model):
         
         if not Device.objects.filter(code=code_id):
             caronte = User.objects.filter(username="caronte").first()
-            device_create = Device.objects.create(user=caronte, kind='tag', code=code_id)
-
+#            device_create = Device.objects.create(user=caronte, kind='tag', code=code_id)
 
 class Log(models.Model):
     __tablename__ = 'cp_log'
@@ -176,7 +175,6 @@ class Message(models.Model):
                 
                 
             send_simple_msg(chatid, text)  
-            
 
     @staticmethod 
     def iboardbot_send(mode, username):

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 {% extends "commons/login.html" %}
 {% load static %}
-{% load bootstrap3 %}
+{% load bootstrap5 %}
+{% load icons %}
 
 {% block body_box %}
 
@@ -16,7 +17,7 @@
       {% bootstrap_form form %}
       {% buttons %}
           <button type="submit" class="btn btn-primary">
-              Log In {% bootstrap_icon "user" %} 
+              Log In {% icon "user" %} 
           </button>
       {% endbuttons %}
   </form>

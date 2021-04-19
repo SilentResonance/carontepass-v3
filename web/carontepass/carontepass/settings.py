@@ -29,11 +29,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'django_icons',
     'rest_framework',
-    'bootstrap3',
+    'bootstrap5',
     'access',
     'commons',
     'graphos',
+    'crispy_forms',
+    'crispy_bootstrap5',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,3 +117,14 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
+
+DJANGO_ICONS = {
+    "ICONS": {
+        "delete": "trash",
+        "user": "user",
+    },
+}
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
